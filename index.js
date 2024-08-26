@@ -3,12 +3,13 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
+const titleQuestion = {
+    type: 'input',
+    message: 'Project title',
+    name: 'title',
+};
+
 const questions = [
-    {
-        type: 'input',
-        message: 'Project title',
-        name: 'title',
-    },
     {
         type: 'input',
         message: 'Description',
@@ -30,9 +31,10 @@ const questions = [
         name: 'usage',
     },
     {
-        type: 'input',
+        type: 'list',
         message: 'License',
         name: 'license',
+        choices: ['MIT', 'Apache', 'GPL', 'BSD', 'LGPL', 'MPL', 'none'],
     },
     {
         type: 'input',
@@ -51,17 +53,35 @@ const questions = [
     },
 ];
 
+// const [desc, tableOC, install, usage, license, contr, tests, Qs] = questionsArray;
+const questionHeadings = questions.map(question => question.message);
+console.log(questionHeadings);
 
-// Inquirer is used to call questions in 'questions' array. Use node index.js to trigger prompts.
+//Write file
 inquirer
-.prompt(questions)
+.prompt(titleQuestion)
 .then((answers) => {
-    const answersForFile = `title: ${answers.title} | description: ${answers.desc} | tableOfContents: ${answers.tableOC} | installation: ${answers.install} | usage: ${answers.usage} | license: ${answers.license} | contributing: ${answers.contr} | tests: ${answers.tests} | questions: ${answers.questions} |`;
-    fs.writeFile('README.md', answersForFile, (err) => {
+    const headings = `${answers.title} | ${questionHeadings.join(' | ')}`;
+
+    fs.writeFile('README.md', headings, (err) => {
         if (err) throw err;
         console.log('README.md has been created!');
     });
 })
+
+//Write answers to questions
+// Inquirer is used to call questions in 'questions' array. Use node index.js to trigger prompts.
+// inquirer
+// .prompt(questions)
+// .then((answers) => {
+//     const answersTitle = `${answer.title}`
+//     const answersForFile = `${answers.desc} | ${answers.tableOC} | ${answers.install} | ${answers.usage} | ${answers.license} | ${answers.contr} | ${answers.tests} | ${answers.questions} |`;
+
+//     fs.writeFile('README.md', answersForFile, (err) => {
+//         if (err) throw err;
+//         console.log('README.md has been created!');
+//     });
+// })
 
 // TODO: Create a function to write README file
 // function writeToFile('README.md', answersForFile) {

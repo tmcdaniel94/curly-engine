@@ -1,1 +1,1 @@
-title: me | description: me | tableOfContents: me | installation: me | usage: me | license: me | contributing: me | tests: me | questions: no |
+hi | Description | Table of Contents | Installation | Usage | License | Contributing | Tests | Questions
