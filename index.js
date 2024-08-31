@@ -61,7 +61,8 @@ console.log(questionHeadings);
 inquirer
 .prompt(titleQuestion)
 .then((answers) => {
-    const headings = `${answers.title} | ${questionHeadings.join(' | ')}`;
+    const headings = `# ${answers.title} \n \n ## ${questionHeadings.join(' \n \n ## ')}`;
+    console.log(typeof headings);
 
     fs.writeFile('README.md', headings, (err) => {
         if (err) throw err;
