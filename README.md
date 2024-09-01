@@ -28,5 +28,5 @@ This code was created using starter code from UT's Full Stack Bootcamp.
 N/A
 
 ## Questions
-https://github.com/tmcdaniel94\
+https://github.com/tmcdaniel94 \
 Want to reach out? Email me at email@email.com
