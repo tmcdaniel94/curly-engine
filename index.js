@@ -55,34 +55,40 @@ const questions = [
 
 // const [desc, tableOC, install, usage, license, contr, tests, Qs] = questionsArray;
 const questionHeadings = questions.map(question => question.message);
-console.log(questionHeadings);
+const allQuestions = [titleQuestion, ...questions];
 
 //Write file
 inquirer
-.prompt(titleQuestion)
+.prompt(allQuestions)
 .then((answers) => {
     const headings = `# ${answers.title} \n \n ## ${questionHeadings.join(' \n \n ## ')}`;
-    console.log(typeof headings);
-
+    
     fs.writeFile('README.md', headings, (err) => {
         if (err) throw err;
         console.log('README.md has been created!');
-    });
+    })
+
+    const answersForFile = `${answers.desc} | ${answers.tableOC} | ${answers.install} | ${answers.usage} | ${answers.license} | ${answers.contr} | ${answers.tests} | ${answers.questions} |`;
+
+    fs.appendFile('README.md', answersForFile, (err) => {
+        if (err) throw err;
+        console.log('README.md content has been created!');
+    })
 })
 
 //Write answers to questions
 // Inquirer is used to call questions in 'questions' array. Use node index.js to trigger prompts.
-// inquirer
-// .prompt(questions)
-// .then((answers) => {
-//     const answersTitle = `${answer.title}`
+//     inquirer
+//     .prompt(questions)
+//     .then((answers) => {
 //     const answersForFile = `${answers.desc} | ${answers.tableOC} | ${answers.install} | ${answers.usage} | ${answers.license} | ${answers.contr} | ${answers.tests} | ${answers.questions} |`;
 
-//     fs.writeFile('README.md', answersForFile, (err) => {
+//     fs.appendFile('README.md', answersForFile, (err) => {
 //         if (err) throw err;
-//         console.log('README.md has been created!');
+//         console.log('README.md content has been created!');
 //     });
 // })
+
 
 // TODO: Create a function to write README file
 // function writeToFile('README.md', answersForFile) {
