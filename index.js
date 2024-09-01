@@ -84,7 +84,7 @@ ${answers.contr}
 ${answers.tests}
 
 ## Questions
-${answers.questions}`;
+https://github.com/${answers.questions}`;
 
     
     fs.writeFile('README.md', headings, (err) => {
