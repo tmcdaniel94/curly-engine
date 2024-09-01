@@ -15,13 +15,13 @@ THEN this information is added to the sections of the README entitled Descriptio
 THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 
 <!-- "questions" prompt generates a link to github profile when github username is input -->
-WHEN I enter my GitHub username
-THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
+<!-- WHEN I enter my GitHub username
+THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile -->
 
 <!-- email address also populates instructions -->
 <!-- WHEN I enter my email address
 THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions -->
 
 <!-- links redirect user to corresponding portion of readme -->
-WHEN I click on the links in the Table of Contents
-THEN I am taken to the corresponding section of the README
+<!-- WHEN I click on the links in the Table of Contents
+THEN I am taken to the corresponding section of the README -->

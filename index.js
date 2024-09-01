@@ -49,7 +49,12 @@ const questions = [
     {
         type: 'input',
         message: 'Questions',
-        name: 'questions',
+        name: 'question1',
+    },
+    {
+        type: 'input',
+        message: 'Questions',
+        name: 'question2',
     },
 ];
 
@@ -62,7 +67,7 @@ inquirer
 .then((answers) => {
     const headings = `# ${answers.title}
 
-## description
+## Description
 ${answers.desc}
 
 ## Table of Contents
@@ -84,7 +89,9 @@ ${answers.contr}
 ${answers.tests}
 
 ## Questions
-https://github.com/${answers.questions}`;
+https://github.com/${answers.question1}
+Want to reach out? Email me at ${answers.question2}`
+
 
     
     fs.writeFile('README.md', headings, (err) => {
