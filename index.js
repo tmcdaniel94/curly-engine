@@ -1,4 +1,5 @@
 // TODO: Include packages needed for this application
+generateMarkdown = require(`./develop/generateMarkdown.js`);
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -65,7 +66,7 @@ const allQuestions = [titleQuestion, ...questions];
 inquirer
 .prompt(allQuestions)
 .then((answers) => {
-    const headings = `# ${answers.title}
+    const headings = `# ${renderLicenseBadge()} ${answers.title}
 
 ## Description
 ${answers.desc}
