@@ -53,7 +53,6 @@ const questions = [
     },
 ];
 
-// const [desc, tableOC, install, usage, license, contr, tests, Qs] = questionsArray;
 const questionHeadings = questions.map(question => question.message);
 const allQuestions = [titleQuestion, ...questions];
 
@@ -61,19 +60,41 @@ const allQuestions = [titleQuestion, ...questions];
 inquirer
 .prompt(allQuestions)
 .then((answers) => {
-    const headings = `# ${answers.title} \n \n ## ${questionHeadings.join(' \n \n ## ')}`;
+    const headings = `# ${answers.title}
+
+## description
+${answers.desc}
+
+## Table of Contents
+${answers.tableOC}
+
+## Installation
+${answers.install}
+
+## Usage
+${answers.usage}
+
+## License
+${answers.license}
+
+## Contribution
+${answers.contr}
+
+## Tests
+${answers.tests}
+
+## Questions
+${answers.questions}`;
+
     
     fs.writeFile('README.md', headings, (err) => {
         if (err) throw err;
         console.log('README.md has been created!');
     })
 
-    const answersForFile = `${answers.desc} | ${answers.tableOC} | ${answers.install} | ${answers.usage} | ${answers.license} | ${answers.contr} | ${answers.tests} | ${answers.questions} |`;
+    // const answersForFile = `${answers.desc} | ${answers.tableOC} | ${answers.install} | ${answers.usage} | ${answers.license} | ${answers.contr} | ${answers.tests} | ${answers.questions} |`;
 
-    fs.appendFile('README.md', answersForFile, (err) => {
-        if (err) throw err;
-        console.log('README.md content has been created!');
-    })
+
 })
 
 //Write answers to questions
