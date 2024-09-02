@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
-generateMarkdown = require(`./develop/generateMarkdown.js`);
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require(`./develop/generateMarkdown.js`);
 
 // TODO: Create an array of questions for user input
 const titleQuestion = {
@@ -66,42 +66,14 @@ const allQuestions = [titleQuestion, ...questions];
 inquirer
 .prompt(allQuestions)
 .then((answers) => {
-    const headings = `#$ {answers.title}
 
-## Description
-${answers.desc}
-
-## Table of Contents
-${answers.tableOC}
-
-## Installation
-${answers.install}
-
-## Usage
-${answers.usage}
-
-## License
-${answers.license}
-
-## Contribution
-${answers.contr}
-
-## Tests
-${answers.tests}
-
-## Questions
-https://github.com/${answers.question1}
-Want to reach out? Email me at ${answers.question2}`
-
-
-    
-    fs.writeFile('README.md', headings, (err) => {
+    const markdown = generateMarkdown(answers)
+    fs.writeFile('README.md', markdown, (err) => {
         if (err) throw err;
         console.log('README.md has been created!');
     })
 
     // const answersForFile = `${answers.desc} | ${answers.tableOC} | ${answers.install} | ${answers.usage} | ${answers.license} | ${answers.contr} | ${answers.tests} | ${answers.questions} |`;
-
 
 })
 
@@ -131,10 +103,3 @@ function init() {}
 // Function call to initialize app
 init();
 
-
-// description
-// This project was created as a tool to generate a README.md file in a more efficient manner using Node. This project was a great learning experience that took a deeper dive into the ins and outs of Node, in addition to Javascript. One skill I had to focus on was the use of Inquirer to create prompts in the command line, which I found I enjoyed using. I can see the time-saving benefits of being able to fully create and edit files simply by answering prompts in the command line once the code is written. 
-
-// table of contents
-// [Description](#description)\[Installation](#installation)\[Usage](#usage)\[License](#license)\[Contributions](#contributions)\[Tests](#tests)\[Questions](#questions)
-// This code was created using starter code from UT's Full Stack Bootcamp.

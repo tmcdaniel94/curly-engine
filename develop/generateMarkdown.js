@@ -12,59 +12,99 @@ const fs = require('fs');
 // const licenseBadges = [MITBadge, apacheBadge, BSDBadge, GPLBadge, LGPLBadge, MPLBadge, noBadge];
 
 function renderLicenseBadge(license) {
-  if (answers.license === MIT) {
-    fs.appendFileSysc('README.md, https://img.shields.io/badge/License-MIT-yellow.svg, (err) => err ? err && console.error(err)');
-  } 
-  // else (answers.license === Apache) {
-  //   fs.appendFileSysc("README.md", ${licenseBadges.apacheBadge}, (err) => err ? err && console.error(err));
-  // } else (answers.license === BSD) {
-  //   fs.appendFileSysc("README.md", ${licenseBadges.BSDBadge}, (err) => err ? err && console.error(err));
-  // } else (answers.license === GPL) {
-  //   fs.appendFileSysc("README.md", ${licenseBadges.GPLBadge}, (err) => err ? err && console.error(err));
-  // } else (answers.license === LGPL) {
-  //   fs.appendFileSysc("README.md", ${licenseBadges.LGPLBadge}, (err) => err ? err && console.error(err));
-  // } else (answers.license === MPL) {
-  //   fs.appendFileSysc("README.md", ${licenseBadges.MPLBadge}, (err) => err ? err && console.error(err));
-  // } else (answers.license === none) {
-  //   return noBadge;
-  // }
 
-  // fs.appendFileSysc("README.md, "${RENDER LINK}", (err) => err ? err && console.error(err));
-  //   ${answers.license}
-
-  //   [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)] //apache
-  //   [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)] //BSD
-  //   [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)] //GPL
-  //   [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)] //LGPL
-  //   [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)] //MPL
-  //   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)] //MIT
+    if (license === 'MIT') {
+      return ('https://img.shields.io/badge/License-MIT-yellow.svg');
+    } else if (license === 'Apache') {
+      return ('https://img.shields.io/badge/License-Apache_2.0-blue.svg');
+    } else if (license === 'BSD') {
+      return ('https://img.shields.io/badge/License-BSD_3--Clause-blue.svg');
+    } else if (license === 'GPL') {
+      return ('https://img.shields.io/badge/License-GPLv3-blue.svg');
+    } else if (license === 'LGPL') {
+      return ('https://img.shields.io/badge/License-LGPL_v3-blue.svg');
+    } else if (license === 'MPL') {
+      return ('https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg');
+    } else if (license === 'none') {
+      return (' ');
+    };
 
 };
 
+
+
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function RenderLicenseLink(license) {
-  this.license = license;
-}
-const apache = new RenderLicenseLink(`https://opensource.org/licenses/Apache-2.0`)
-const BSD = new RenderLicenseLink(`https://opensource.org/licenses/BSD-3-Clause`)
-const GPL = new RenderLicenseLink(`https://www.gnu.org/licenses/gpl-3.0`)
-const LGPL = new RenderLicenseLink(`https://www.gnu.org/licenses/lgpl-3.0`)
-const MIT = new RenderLicenseLink(`https://opensource.org/licenses/MIT`)
-const MPL = new RenderLicenseLink(`https://opensource.org/licenses/MPL-2.0`)
-const none = new RenderLicenseLink('');
+
+// function RenderLicenseLink(license) {
+//   this.license = license;
+// }
+
 
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  // call renderlicenseBadge with license, return line 63
+  // renderLicenseBadge(license)
+  const Apache = (`https://opensource.org/licenses/Apache-2.0`)
+  const BSD = (`https://opensource.org/licenses/BSD-3-Clause`)
+  const GPL = (`https://www.gnu.org/licenses/gpl-3.0`)
+  const LGPL = (`https://www.gnu.org/licenses/lgpl-3.0`)
+  const MIT = (`https://opensource.org/licenses/MIT`)
+  const MPL = (`https://opensource.org/licenses/MPL-2.0`)
+
+  if (license === 'MIT') {
+    return (MIT);
+  } else if (license === 'Apache') {
+    return (Apache);
+  } else if (license === 'BSD') {
+    return (BSD);
+  } else if (license === 'GPL') {
+    return (GPL);
+  } else if (license === 'LGPL') {
+    return (LGPL);
+  } else if (license === 'MPL') {
+    return (MPL);
+  } else if (license === 'none') {
+    return (' ');
+  };
+
+
+  // ![${data.license}](${renderLicenseBadge(data.license)})
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
-${renderLicenseBadge(answers.license)}
+return `# ${data.title}
+![${data.license}](${renderLicenseBadge(data.license)})
 
-`;
+## Description
+${data.desc}
+  
+## Table of Contents
+${data.tableOC}  
+  
+## Installation
+${data.install}
+  
+## Usage
+${data.usage}
+  
+## License
+${data.license} 
+${renderLicenseSection(data.license)}
+  
+## Contribution
+${data.contr}
+  
+## Tests
+${data.tests}
+  
+## Questions
+https://github.com/${data.question1}  
+Want to reach out? Email me at ${data.question2}`
+
 }
 
 module.exports = generateMarkdown;
