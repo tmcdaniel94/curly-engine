@@ -2,15 +2,6 @@
 // If there is no license, return an empty string
 const fs = require('fs');
 
-// const MITBadge = [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)];
-// const apacheBadge = [![License]('https://img.shields.io/badge/License-Apache_2.0-blue.svg')];
-// const BSDBadge = [![License]('https://img.shields.io/badge/License-BSD_3--Clause-blue.svg')];
-// const GPLBadge = [![License: GPL v3]('https://img.shields.io/badge/License-GPLv3-blue.svg')];
-// const LGPLBadge = [![License: LGPL v3]('https://img.shields.io/badge/License-LGPL_v3-blue.svg')];
-// const MPLBadge = [![License: MPL 2.0]('https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg')];
-// const noBadge = ('');
-// const licenseBadges = [MITBadge, apacheBadge, BSDBadge, GPLBadge, LGPLBadge, MPLBadge, noBadge];
-
 function renderLicenseBadge(license) {
 
     if (license === 'MIT') {
@@ -31,16 +22,11 @@ function renderLicenseBadge(license) {
 
 };
 
-
-
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-
 // function RenderLicenseLink(license) {
 //   this.license = license;
 // }
-
-
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string

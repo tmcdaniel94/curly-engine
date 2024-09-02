@@ -73,28 +73,12 @@ inquirer
         console.log('README.md has been created!');
     })
 
-    // const answersForFile = `${answers.desc} | ${answers.tableOC} | ${answers.install} | ${answers.usage} | ${answers.license} | ${answers.contr} | ${answers.tests} | ${answers.questions} |`;
-
 })
 
-//Write answers to questions
-// Inquirer is used to call questions in 'questions' array. Use node index.js to trigger prompts.
-//     inquirer
-//     .prompt(questions)
-//     .then((answers) => {
-//     const answersForFile = `${answers.desc} | ${answers.tableOC} | ${answers.install} | ${answers.usage} | ${answers.license} | ${answers.contr} | ${answers.tests} | ${answers.questions} |`;
-
-//     fs.appendFile('README.md', answersForFile, (err) => {
-//         if (err) throw err;
-//         console.log('README.md content has been created!');
-//     });
-// })
 
 
 // TODO: Create a function to write README file
 // function writeToFile('README.md', answersForFile) {
-
-
 // }
 
 // TODO: Create a function to initialize app

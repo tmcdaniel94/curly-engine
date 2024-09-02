@@ -12,7 +12,7 @@ THEN this information is added to the sections of the README entitled Descriptio
 <!-- license prompt as a list -->
 <!-- choice generates a badge and information -->
 <!-- WHEN I choose a license for my application from a list of options -->
-THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
+<!-- THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under -->
 
 <!-- "questions" prompt generates a link to github profile when github username is input -->
 <!-- WHEN I enter my GitHub username
