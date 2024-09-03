@@ -18,7 +18,8 @@ This project was created as a tool to generate a README.md file in a more effici
 N/A
   
 ## Usage
-N/A
+To see this code in action, enjoy the following video: 
+[Link to Demo](https://drive.google.com/file/d/1Eepm8lBmqmiZV7QvGcTZtwluBPk4KYZO/view?usp=sharing)
   
 ## License
 MIT 
